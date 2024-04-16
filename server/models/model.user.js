@@ -22,6 +22,9 @@ const User = sequelize.define("User", {
   refresh_token: {
     type: DataTypes.STRING,
   },
+  access_token_expiry: {
+    type: DataTypes.DATE,
+  },
 });
 
 module.exports = User;
