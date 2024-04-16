@@ -27,4 +27,16 @@ const User = sequelize.define("User", {
   },
 });
 
+// METHOD: Check if access_token is expired
+User.prototype.checkAccessTokenExpiry = function () {
+  const currentDate = new Date();
+  const expiryDate = this.access_token_expiry;
+  return expiryDate && expiryDate < currentDate;
+};
+
+// METHOD: Fetch new access_token using refresh_token
+User.prototype.requestAccessToken = function () {
+  // TODO: Implement logic to request new OAuth2 access_token from Google using OAuth2 refresh_token
+};
+
 module.exports = User;
