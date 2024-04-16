@@ -1,12 +1,13 @@
 const express = require("express");
 const sequelize = require("./config/database");
 const User = require("./models/model.user");
+const Application = require("./models/model.application");
 
 const app = express();
 
 // Sync the Sequelize models with the database
 sequelize
-  .sync()
+  .sync({ alter: true })
   .then(() => {
     console.log("Database synced");
     app.listen(3000, () => {
