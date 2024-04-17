@@ -27,6 +27,9 @@ const User = sequelize.define("User", {
   },
 });
 
+// METHOD: Authenticate user
+User.prototype.authenticate = function () {};
+
 // METHOD: Check if access_token is expired
 User.prototype.checkAccessTokenExpiry = function () {
   const currentDate = new Date();
