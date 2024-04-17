@@ -1,7 +1,6 @@
 const express = require("express");
 const sequelize = require("./config/database");
-const User = require("./models/model.user");
-const Application = require("./models/model.application");
+const config = require("./config/config");
 
 const app = express();
 
@@ -10,8 +9,8 @@ sequelize
   .sync({ alter: true })
   .then(() => {
     console.log("Database synced");
-    app.listen(3000, () => {
-      console.log("Server is running on port 3000");
+    app.listen(config.port, () => {
+      console.log(`Server is running on port ${config.port}`);
     });
   })
   .catch((err) => {
