@@ -2,8 +2,8 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "email": "test1",
-    "password": "test1"
+    "email": "",
+    "password": ""
 }
 
 ###
@@ -12,8 +12,28 @@ POST http://localhost:3000/auth/signIn
 Content-Type: application/json
 
 {
-    "email": "test1",
-    "password": "test1"
+    "email": "",
+    "password": ""
 }
 
 ###
+
+GET http://localhost:3000/api/users/:userId
+Content-Type: application/json
+Authorization: Bearer 
+
+###
+
+PUT http://localhost:3000/api/users/:userId
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+    
+}
+
+###
+
+DELETE http://localhost:3000/api/users/:userId
+Content-Type: application/json
+Authorization: Bearer 
