@@ -12,3 +12,5 @@ app.use(express.json());
 
 // Mount routes
 app.use("/", authRouter);
+
+module.exports = app;

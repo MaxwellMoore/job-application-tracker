@@ -10,7 +10,7 @@ const create = async (req, res, next) => {
     user.password = undefined;
     res.status(201).send(user);
   } catch (error) {
-    next(error);
+    console.error(error);
   }
 };
 
@@ -19,3 +19,10 @@ const read = async (req, res) => {};
 const update = async (req, res, next) => {};
 
 const remove = async (req, res) => {};
+
+module.exports = {
+  create,
+  read,
+  update,
+  remove,
+};

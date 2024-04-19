@@ -1,3 +1,4 @@
+/*
 const jwt = require("jsonwebtoken");
 const expressJWT = require("express-jwt");
 const config = require("./../config/config");
@@ -42,3 +43,4 @@ const isAuthenticated = expressJWT({
 });
 
 const isAuthorized = (req, res, next) => {};
+*/

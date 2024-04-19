@@ -1,8 +1,6 @@
-const express = require("express");
+const app = require("./express");
 const sequelize = require("./config/database");
 const config = require("./config/config");
-
-const app = express();
 
 // Sync the Sequelize models with the database
 sequelize
