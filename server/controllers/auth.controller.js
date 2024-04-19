@@ -1,6 +1,5 @@
-/*
 const jwt = require("jsonwebtoken");
-const expressJWT = require("express-jwt");
+const expressJwt = require("express-jwt");
 const config = require("./../config/config");
 const User = require("./../models/user.model");
 
@@ -36,11 +35,13 @@ const signIn = async (req, res) => {
   }
 };
 
-const isAuthenticated = expressJWT({
+const isAuthenticated = expressJwt({
   secret: config.jwtSecret,
   requestProperty: "auth",
   algorithms: ["HS256"],
 });
 
-const isAuthorized = (req, res, next) => {};
-*/
+module.exports = {
+  signIn,
+  isAuthenticated,
+};
