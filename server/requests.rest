@@ -12,28 +12,71 @@ POST http://localhost:3000/auth/signIn
 Content-Type: application/json
 
 {
-    "email": "",
-    "password": ""
+    "email": "admin",
+    "password": "admin"
 }
 
 ###
 
-GET http://localhost:3000/api/users/:userId
+GET http://localhost:3000/api/users/3
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
 
 ###
 
-PUT http://localhost:3000/api/users/:userId
+PUT http://localhost:3000/api/users/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+
+{
+    "password": "newPassword"
+}
+
+###
+
+DELETE http://localhost:3000/api/users/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNzEzNTc5NDU0LCJleHAiOjE3MTM2MjI2NTR9.eVoHl8j0TNBibToD_FE86I-KMdT6CopjF3pgpdYI-X0
+
+###
+
+POST http://localhost:3000/api/apps/3
 Content-Type: application/json
 Authorization: Bearer 
 
 {
-    
+    "job_title" : "Software Engineer",
+    "company_name" : "Amazon",
+    "application_status" : "Under Review"
 }
 
 ###
 
-DELETE http://localhost:3000/api/users/:userId
+GET http://localhost:3000/api/apps/3
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+
+###
+
+GET http://localhost:3000/api/3/app/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+
+###
+
+PUT http://localhost:3000/api/3/app/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+
+{
+    "job_title" : "JOB_TITLE"
+}
+
+
+###
+
+DELETE http://localhost:3000/api/3/app/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+
+###

@@ -3,7 +3,7 @@ const sequelize = require("../config/database");
 const User = require("./user.model");
 
 const Application = sequelize.define("Application", {
-  id: {
+  app_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
