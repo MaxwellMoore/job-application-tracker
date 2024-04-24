@@ -18,6 +18,10 @@ app.use("/", authRouter);
 app.use("/", userRouter);
 app.use("/", appItemRouter);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client", "public", "index.html"));
+});
+
 // Mount error handler
 app.use(customErrorHandler);
 
