@@ -6,10 +6,10 @@ function Login() {
   return (
     <Form>
       <h1>Login Page</h1>
-      <FloatingLabel label="Email address">
+      <FloatingLabel controlId="email" label="Email address">
         <Form.Control placeholder="Email address" />
       </FloatingLabel>
-      <FloatingLabel label="Password">
+      <FloatingLabel controlId="password" label="Password">
         <Form.Control placeholder="Password" />
       </FloatingLabel>
       <Button type="submit">Login</Button>

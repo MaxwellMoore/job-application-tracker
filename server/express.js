@@ -1,5 +1,6 @@
 // Required packages
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const customErrorHandler = require("./utils/middleware/customErrorHandler");
 
@@ -11,6 +12,7 @@ const appItemRouter = require("./routes/appItem.routes");
 const app = express();
 
 // Configure middleware
+app.use(cors());
 app.use(express.json());
 
 // Mount routes
