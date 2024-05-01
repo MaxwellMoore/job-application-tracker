@@ -1,34 +1,36 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setEmail, setPassword } from "../../store/slices/authSlice";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../store/slices/authSliceTest";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Login() {
   const dispatch = useDispatch();
-  const email = useSelector((state) => state.auth.email);
-  const password = useSelector((state) => state.auth.password);
+  const navigate = useNavigate();
 
-  const handleEmailChange = (e) => {
-    dispatch(setEmail(e.target.value));
-  };
-  const handlePasswordChange = (e) => {
-    dispatch(setPassword(e.target.value));
-  };
+  // Local State
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
+
+    dispatch(login({ email, password })).then((action) => {
+      localStorage.setItem("accessToken", action.payload.token);
+      navigate("/");
+    });
   };
 
   return (
-    <Form onSubmit="{handleSubmit}">
+    <Form onSubmit={onSubmit}>
       <h1>Login Page</h1>
       <FloatingLabel controlId="email" label="Email address">
         <Form.Control
           type="email"
           placeholder="Email address"
           value={email}
-          onChange={handleEmailChange}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </FloatingLabel>
       <FloatingLabel controlId="password" label="Password">
@@ -36,7 +38,7 @@ function Login() {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={handlePasswordChange}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </FloatingLabel>
       <Button type="submit">Login</Button>

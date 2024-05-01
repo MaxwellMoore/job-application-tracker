@@ -4,26 +4,26 @@ const config = require("./../config/config");
 const User = require("./../models/user.model");
 
 // METHOD: signIn
-const signIn = async (req, res) => {
+const login = async (req, res) => {
   // Validate Email and Password are present
-  if (!req.body.email) {
+  if (!req.body.user.email) {
     return res.status(400).send({ error: "Enter a valid Email" });
   }
-  if (!req.body.password) {
+  if (!req.body.user.password) {
     return res.status(400).send({ error: "Enter a valid Password" });
   }
 
   try {
     // Query for existing user
-    const user = await User.findOne({ where: { email: req.body.email } });
+    const user = await User.findOne({ where: { email: req.body.user.email } });
     if (!user) {
       return res.status(404).send({ error: "User not found" });
     }
 
     // Authenticate Email with Password
-    if (!(await user.authenticate(req.body.password))) {
+    if (!(await user.authenticate(req.body.user.password))) {
       return res.status(401).send({
-        error: "Authentication Failed: Email and Password do not match",
+        error: "Authentication Failed: Incorrect password",
       });
     }
 
@@ -34,10 +34,11 @@ const signIn = async (req, res) => {
 
     // Return access token and user detailss
     return res.status(200).send({
-      token,
       user: {
-        userId: user.user_id,
         email: user.email,
+        username: null,
+        image: null,
+        token: token,
       },
     });
   } catch (error) {
@@ -65,7 +66,7 @@ const isAuthorized = (req, res, next) => {
 };
 
 module.exports = {
-  signIn,
+  login,
   isAuthenticated,
   isAuthorized,
 };

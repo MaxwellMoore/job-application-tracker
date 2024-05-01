@@ -1,21 +1,37 @@
+const jwt = require("jsonwebtoken");
+const config = require("./../config/config");
 const User = require("./../models/user.model");
 const { extend } = require("lodash");
 
 const create = async (req, res, next) => {
-  if (!req.body.email || !req.body.password) {
+  if (!req.body.user.email || !req.body.user.password) {
     return res.status(400).send({ error: "Email and Password Required" });
   }
   try {
     const isNotUnique = await User.findOne({
-      where: { email: req.body.email },
+      where: { email: req.body.user.email },
     });
     if (isNotUnique) {
       return res.status(409).send({ error: "Unique Email Required" });
     }
-    const user = new User(req.body);
+    const user = new User(req.body.user);
     await user.save();
     user.password = undefined;
-    res.status(201).send(user);
+
+    // Generate access token
+    const token = jwt.sign({ id: user.user_id }, config.jwtSecret, {
+      expiresIn: "12h",
+    });
+
+    // Return access token and user detailss
+    return res.status(200).send({
+      user: {
+        email: user.email,
+        username: null,
+        image: null,
+        token: token,
+      },
+    });
   } catch (error) {
     next(error);
   }
