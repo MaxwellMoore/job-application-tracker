@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../store/slices/authSliceTest";
+import { login } from "../../store/slices/authSlice";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -15,6 +15,7 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log(`Login email: ${email}, password: ${password}`);
 
     dispatch(login({ email, password })).then((action) => {
       localStorage.setItem("accessToken", action.payload.token);

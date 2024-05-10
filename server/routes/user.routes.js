@@ -7,6 +7,9 @@ const router = express.Router();
 router.param("userId", userController.userById);
 
 router
+  .route("/api/user")
+  .get(authController.isAuthenticated, userController.getCurrentUser);
+router
   .route("/api/users/:userId")
   .get(authController.isAuthenticated, userController.read)
   .put(

@@ -78,6 +78,25 @@ const remove = async (req, res) => {
   }
 };
 
+const getCurrentUser = async (req, res) => {
+  try {
+    const userId = req.auth.id.toString();
+    const user = await User.findOne({ where: { user_id: userId } });
+    if (!user) return res.status(404).send({ error: "User not found" });
+
+    return res.status(200).send({
+      user: {
+        email: user.email,
+        username: null,
+        image: null,
+        token: null,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const userById = async (req, res, next) => {
   try {
     const userId = req.params.userId;
@@ -96,5 +115,6 @@ module.exports = {
   read,
   update,
   remove,
+  getCurrentUser,
   userById,
 };
