@@ -20,13 +20,13 @@ Content-Type: application/json
 
 GET http://localhost:3000/api/users/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+Authorization: Bearer 
 
 ###
 
 PUT http://localhost:3000/api/users/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+Authorization: Bearer 
 
 {
     "password": "newPassword"
@@ -36,7 +36,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxN
 
 DELETE http://localhost:3000/api/users/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNzEzNTc5NDU0LCJleHAiOjE3MTM2MjI2NTR9.eVoHl8j0TNBibToD_FE86I-KMdT6CopjF3pgpdYI-X0
+Authorization: Bearer 
 
 ###
 
@@ -54,19 +54,18 @@ Authorization: Bearer
 
 GET http://localhost:3000/api/apps/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
-
+Authorization: Bearer 
 ###
 
 GET http://localhost:3000/api/3/app/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+Authorization: Bearer 
 
 ###
 
 PUT http://localhost:3000/api/3/app/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
+Authorization: Bearer 
 
 {
     "job_title" : "JOB_TITLE"
@@ -77,6 +76,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxN
 
 DELETE http://localhost:3000/api/3/app/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzEzNTgzMTkwLCJleHAiOjE3MTM2MjYzOTB9.zq_TsxyIPUQ_q7386t-Lmtq85KLdKjrtMpyfFGEptjI
-
+Authorization: Bearer 
 ###
